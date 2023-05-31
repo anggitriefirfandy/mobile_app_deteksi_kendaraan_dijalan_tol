@@ -1,0 +1,34 @@
+name: kendaraan
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment:
+   sdk: ">=2.19.0-400.0.dev <3.0.0"
+
+dependencies:
+   cupertino_icons: ^1.0.2
+   camera: ^0.10.3+2
+   # tflite: ^1.1.2
+   get: 4.6.5
+   another_flutter_splash_screen: ^1.1.4
+   cached_network_image: ^3.2.3
+   path_provider: ^2.0.14
+   image_picker: ^0.8.7+4
+   flutter_otp_text_field: ^1.1.1
+   flutter_toggle_tab: ^1.3.0
+   http: ^0.13.4
+   hexcolor: ^2.0.4
+   font_awesome_flutter: ^9.1.0
+   flutter:
+      sdk: flutter
+
+dev_dependencies:
+   flutter_lints: ^2.0.0
+   flutter_test:
+      sdk: flutter
+
+flutter:
+   uses-material-design: true
+# assets:
+#    - assets/model_unquant.tflite
+#    - assets/labels.txt
