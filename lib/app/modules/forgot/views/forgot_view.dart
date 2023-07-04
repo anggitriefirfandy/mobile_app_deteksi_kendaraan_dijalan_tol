@@ -13,7 +13,7 @@ class ForgotView extends GetView<ForgotController> {
         title: const Text('ForgotView'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'ForgotView is working',
           style: TextStyle(fontSize: 20),

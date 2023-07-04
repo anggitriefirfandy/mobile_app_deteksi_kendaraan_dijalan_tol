@@ -58,8 +58,8 @@ class AlarmView extends StatelessWidget {
             elevation: 0,
             leading: IconButton(
               color: Colors.black,
-              icon: Icon(Icons.arrow_back),
-              padding: EdgeInsets.all(20),
+              icon: const Icon(Icons.arrow_back),
+              padding: const EdgeInsets.all(20),
               onPressed: () {
                 Get.offAllNamed(Routes.DASHBOARD);
               },

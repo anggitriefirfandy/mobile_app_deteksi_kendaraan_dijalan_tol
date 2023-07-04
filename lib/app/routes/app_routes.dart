@@ -15,6 +15,9 @@ abstract class Routes {
   static const HISTORY = _Paths.HISTORY;
   static const ALARM = _Paths.ALARM;
   static const OTP = _Paths.OTP;
+  static const PROFILE = _Paths.PROFIL;
+  static const UPDATE_PROFILE = _Paths.UPDATE_PROFILE;
+  static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
 }
 
 abstract class _Paths {
@@ -31,4 +34,7 @@ abstract class _Paths {
   static const HISTORY = '/history';
   static const ALARM = '/alarm';
   static const OTP = '/otp';
+  static const PROFIL = '/profil';
+  static const UPDATE_PROFILE = '/update-profile';
+  static const CHANGE_PASSWORD = '/change-password';
 }

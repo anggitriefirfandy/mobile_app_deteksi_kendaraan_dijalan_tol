@@ -1,6 +1,4 @@
 import 'package:get/get.dart';
-import 'package:kendaraan/app/modules/home/bindings/home_binding.dart';
-import 'package:kendaraan/app/modules/home/views/home_view.dart';
 
 import '../modules/History/bindings/history_binding.dart';
 import '../modules/History/views/history_view.dart';
@@ -10,18 +8,26 @@ import '../modules/alarm/bindings/alarm_binding.dart';
 import '../modules/alarm/views/alarm_view.dart';
 import '../modules/cctv/bindings/cctv_binding.dart';
 import '../modules/cctv/views/cctv_view.dart';
+import '../modules/change_password/bindings/change_password_binding.dart';
+import '../modules/change_password/views/change_password_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forgot/bindings/forgot_binding.dart';
 import '../modules/forgot/views/forgot_view.dart';
+import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/otp/bindings/otp_binding.dart';
 import '../modules/otp/views/otp_view.dart';
+import '../modules/profil/bindings/profil_binding.dart';
+import '../modules/profil/views/profil_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
 import '../modules/splash_screen/views/splash_screen_view.dart';
+import '../modules/update_profile/bindings/update_profile_binding.dart';
+import '../modules/update_profile/views/update_profile_view.dart';
 
 part 'app_routes.dart';
 
@@ -33,7 +39,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.CCTV,
-      page: () => CctvView(),
+      page: () => const CctvView(),
       binding: CctvBinding(),
     ),
     GetPage(
@@ -83,8 +89,23 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.HOME,
-      page: () => HomeView(),
+      page: () => const HomeView(),
       binding: HomeBinding(),
     ),
+    GetPage(
+      name: _Paths.PROFIL,
+      page: () => ProfilView(),
+      binding: ProfilBinding(),
+    ),
+    GetPage(
+      name: _Paths.UPDATE_PROFILE,
+      page: () => const UpdateProfileView(),
+      binding: UpdateProfileBinding(),
+    ),
+    // GetPage(
+    //   name: _Paths.CHANGE_PASSWORD,
+    //   page: () => const ChangePasswordView(),
+    //   binding: ChangePasswordBinding(),
+    // ),
   ];
 }

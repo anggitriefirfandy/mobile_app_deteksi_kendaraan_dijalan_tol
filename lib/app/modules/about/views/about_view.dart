@@ -16,13 +16,13 @@ class AboutView extends GetView<AboutController> {
           elevation: 0,
           leading: IconButton(
             color: Colors.black,
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Get.offAllNamed(Routes.DASHBOARD);
             },
           ),
         ),
-        body: Column(children: <Widget>[
+        body: const Column(children: <Widget>[
           Text(
             'Kelas Kendaraan Yang Di Deteksi',
             style: TextStyle(fontSize: 24, fontFamily: "Serif", height: 2.0),

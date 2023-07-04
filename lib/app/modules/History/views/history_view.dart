@@ -5,6 +5,52 @@ import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/history_controller.dart';
 
+
+
+// class HistoryView extends StatelessWidget {
+//   final HistoryController _historyController = Get.put(HistoryController());
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('View History'),
+//       ),
+//       body: Obx(
+//         () {
+//           if (_historyController.isLoading.value) {
+//             return Center(
+//               child: CircularProgressIndicator(),
+//             );
+//           } else if (_historyController.historyList.isEmpty) {
+//             return Center(
+//               child: Text('No history found'),
+//             );
+//           } else {
+//             return ListView.builder(
+//               itemCount: _historyController.historyList.length,
+//               itemBuilder: (context, index) {
+//                 final history = _historyController.historyList[index];
+//                 return ListTile(
+//                   title: Text(history.nama),
+//                   subtitle: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       Text('Jenis Kendaraan: ${history.jenisKendaraan}'),
+//                       Text('Tanggal: ${history.tanggal}'),
+//                       Text('Waktu: ${history.waktu}'),
+//                     ],
+//                   ),
+//                 );
+//               },
+//             );
+//           }
+//         },
+//       ),
+//     );
+//   }
+// }
+
 class HistoryView extends GetView<HistoryController> {
   const HistoryView({Key? key}) : super(key: key);
   @override
@@ -15,7 +61,7 @@ class HistoryView extends GetView<HistoryController> {
           elevation: 0,
           leading: IconButton(
             color: Colors.black,
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Get.offAllNamed(Routes.DASHBOARD);
             },
@@ -26,10 +72,10 @@ class HistoryView extends GetView<HistoryController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: Table(
                   border: TableBorder.all(),
-                  children: [
+                  children: const [
                     TableRow(children: [
                       Text('Jenis Kendaraan',
                           textAlign: TextAlign.center,
@@ -70,9 +116,9 @@ class HistoryView extends GetView<HistoryController> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(25),
+                margin: const EdgeInsets.all(25),
                 child: ElevatedButton(
-                  child: Text(
+                  child: const Text(
                     'Download data',
                     style: TextStyle(fontSize: 15.0),
                   ),

@@ -1,13 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:get/get.dart';
-import 'package:kendaraan/common/theme_helper.dart';
+import 'package:kendaraan/app/modules/login/views/login_view.dart';
 import 'package:kendaraan/pages/header_widget.dart';
-import 'package:kendaraan/app/routes/app_pages.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../controllers/register_controller.dart';
-import 'package:flutter/cupertino.dart';
 
 class RegisterView extends GetView<RegisterController> {
   final TextEditingController firstnameController = TextEditingController();
@@ -24,28 +20,28 @@ class RegisterView extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          color: Colors.black,
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Get.offAllNamed(Routes.HOME);
-          },
-        ),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   leading: IconButton(
+      //     color: Colors.black,
+      //     icon: Icon(Icons.arrow_back),
+      //     onPressed: () {
+      //       Get.offAllNamed(Routes.HOME);
+      //     },
+      //   ),
+      // ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Container(
+            const SizedBox(
               height: 150,
               child: HeaderWidget(150, false, Icons.person_add_alt_1_rounded),
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(25, 50, 25, 10),
-              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              margin: const EdgeInsets.fromLTRB(25, 50, 25, 10),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               alignment: Alignment.center,
               child: Column(
                 children: [
@@ -56,17 +52,17 @@ class RegisterView extends GetView<RegisterController> {
                         child: Stack(
                           children: [
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
                                 border:
                                     Border.all(width: 5, color: Colors.white),
                                 color: Colors.white,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     color: Colors.black12,
                                     blurRadius: 20,
-                                    offset: const Offset(5, 5),
+                                    offset: Offset(5, 5),
                                   ),
                                 ],
                               ),
@@ -77,7 +73,7 @@ class RegisterView extends GetView<RegisterController> {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.fromLTRB(80, 80, 0, 0),
+                              padding: const EdgeInsets.fromLTRB(80, 80, 0, 0),
                               child: Icon(
                                 Icons.add_circle,
                                 color: Colors.grey.shade700,
@@ -87,18 +83,18 @@ class RegisterView extends GetView<RegisterController> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                         width: 10,
                       ),
                       TextField(
                         controller: firstnameController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Firstname',
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                         width: 10,
                       ),
@@ -113,7 +109,7 @@ class RegisterView extends GetView<RegisterController> {
                           labelText: "Lastname",
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                         width: 10,
                       ),
@@ -128,7 +124,7 @@ class RegisterView extends GetView<RegisterController> {
                           labelText: "email",
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                         width: 10,
                       ),
@@ -143,7 +139,7 @@ class RegisterView extends GetView<RegisterController> {
                           labelText: "Password",
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                         width: 10,
                       ),
@@ -159,7 +155,7 @@ class RegisterView extends GetView<RegisterController> {
                           labelText: "Re-Password",
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                         width: 10,
                       ),
@@ -192,12 +188,32 @@ class RegisterView extends GetView<RegisterController> {
                                       password,
                                       confirmPassword);
 
-                                  Get.offAllNamed(Routes.OTP);
+                                  // Get.offAllNamed(Routes.OTP);
                                 },
-                                child: Text('REGISTER'),
+                                child: const Text('REGISTER'),
                               );
                             },
-                          ))
+                          )),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        //child: Text('Don\'t have an account? Create'),
+                        child: Text.rich(TextSpan(children: [
+                          const TextSpan(text: "have an account? "),
+                          TextSpan(
+                            text: 'Login',
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginView()));
+                              },
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.secondary),
+                          ),
+                        ])),
+                      ),
                     ]),
                   ),
                 ],

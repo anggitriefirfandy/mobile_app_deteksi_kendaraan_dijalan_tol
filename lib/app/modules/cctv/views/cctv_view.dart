@@ -1,18 +1,37 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
 import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart';
 import '../../../routes/app_pages.dart';
-import '../controllers/cctv_controller.dart';
 
-import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+// class CctvView extends GetView<CctvController> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Camera'),
+//       ),
+//       body: Obx(
+//         () {
+//           if (!controller.controller.value.isInitialized) {
+//             return Container();
+//           }
+//           return AspectRatio(
+//             aspectRatio: controller.controller.value.aspectRatio,
+//             child: CameraPreview(controller.controller),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+
 class CctvView extends StatefulWidget {
+  const CctvView({super.key});
+
   @override
   _CctvViewState createState() => _CctvViewState();
 }
@@ -38,7 +57,7 @@ class _CctvViewState extends State<CctvView> {
         elevation: 0,
         leading: IconButton(
           color: Colors.black,
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Get.offAllNamed(Routes.DASHBOARD);
           },
@@ -46,18 +65,18 @@ class _CctvViewState extends State<CctvView> {
       ),
       body: Container(
         child: Center(
-          child: _image == null ? Text("No Image") : Image.file(_image!),
+          child: _image == null ? const Text("No Image") : Image.file(_image!),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          child: Icon(
-            Icons.add_a_photo,
-            color: Colors.white,
-          ),
           backgroundColor: Colors.green,
           onPressed: () {
             openCamera();
-          }),
+          },
+          child: const Icon(
+            Icons.add_a_photo,
+            color: Colors.white,
+          )),
     );
   }
 }

@@ -28,6 +28,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AccessCameraPage extends StatefulWidget {
+  const AccessCameraPage({super.key});
+
   @override
   _AccessCameraPageState createState() => _AccessCameraPageState();
 }
@@ -49,22 +51,22 @@ class _AccessCameraPageState extends State<AccessCameraPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Access Camera"),
+        title: const Text("Access Camera"),
       ),
       body: Container(
         child: Center(
-          child: _image == null ? Text("No Image") : Image.file(_image!),
+          child: _image == null ? const Text("No Image") : Image.file(_image!),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          child: Icon(
-            Icons.add_a_photo,
-            color: Colors.white,
-          ),
           backgroundColor: Colors.green,
           onPressed: () {
             openCamera();
-          }),
+          },
+          child: const Icon(
+            Icons.add_a_photo,
+            color: Colors.white,
+          )),
     );
   }
 }

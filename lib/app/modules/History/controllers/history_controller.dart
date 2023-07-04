@@ -1,23 +1,25 @@
+
 import 'package:get/get.dart';
 
+
 class HistoryController extends GetxController {
-  //TODO: Implement HistoryController
+  // var historyList = <History>[].obs;
+  // var isLoading = true.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  // void fetchHistory() async {
+  //   try {
+  //     final response = await http.get(Uri.parse('http://your-api-url/history'));
+  //     if (response.statusCode == 200) {
+  //       final List<dynamic> jsonResponse = json.decode(response.body);
+  //       historyList.value =
+  //           jsonResponse.map((data) => History.fromJson(data)).toList();
+  //     } else {
+  //       throw Exception('Failed to load history');
+  //     }
+  //   } catch (e) {
+  //     throw Exception('Failed to load history: $e');
+  //   } finally {
+  //     isLoading.value = false;
+  //   }
+  // }
 }

@@ -1,8 +1,10 @@
 import 'dart:convert';
-
+import 'package:kendaraan/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+
+import '../../../../email.dart';
 
 class RegisterController extends GetxController {
   final firstnameController = TextEditingController();
@@ -13,7 +15,7 @@ class RegisterController extends GetxController {
 
   void registerUser(String firstname, String lastname, String email,
       String password, String confirmPassword) async {
-    var url = 'http://192.168.1.7:5000/register';
+    var url = 'https://anggit.up.railway.app/register';
 
     // Mengambil nilai dari input field
     // String firstname = firstnameController.text;
@@ -22,11 +24,11 @@ class RegisterController extends GetxController {
     // String password = passwordController.text;
     // String confirmPassword = confirmPasswordController.text;
 
-// String firstname = "dani";
-//     String lastname = "waluyo";
-//     String email = "waluyo@gmail.com";
-//     String password = "waluyo123";
-//     String confirmPassword = "waluyo123";
+    // String firstname = "dani";
+    // String lastname = "waluyo";
+    // String email = "waluyo@gmail.com";
+    // String password = "waluyo123";
+    // String confirmPassword = "waluyo123";
 
     // Membuat body request dalam format JSON
     var body = {
@@ -36,6 +38,7 @@ class RegisterController extends GetxController {
       'password': password,
       'confirm_password': confirmPassword,
     };
+    authdata.email = email;
 
     // Mengirim permintaan POST ke endpoint Flask
     print(firstname);
@@ -45,6 +48,7 @@ class RegisterController extends GetxController {
     if (response.statusCode == 201) {
       // Registrasi berhasil
       print('Registrasi Berhasil. Silahkan cek email untuk verifikasi.');
+      Get.offAllNamed(Routes.OTP);
     } else if (response.statusCode == 400) {
       // Kesalahan pada permintaan (misalnya password tidak cocok)
       print('Terjadi kesalahan: ${response.body}');
